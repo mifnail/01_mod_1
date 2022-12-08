@@ -23,7 +23,9 @@ while True:
     if action == '1':
         file_open()
     elif action == '2':
-        print(insert(input('vin: '), input('Гос номер: '), input('Марка: '), input('Модель: '), int(input('Год выпуска: ')), int(input('Мощность: ')), int(input('ПРобег: '),)), int(input('Количество владельцев: ')), int((input('Стоимость: ')) ))
+        print(insert(input('vin: '), input('Гос номер: '), input('Марка: '), input('Модель: '),
+                     int(input('Год выпуска: ')), int(input('Мощность: ')), int(input('ПРобег: '),),
+              int(input('Количество владельцев: ')), int(input('Стоимость: '))))
     elif action == '3':
         col = input('Колонка: ')
         val = input('Значение: ')
