@@ -1,7 +1,7 @@
 from csv_csv import file_open, insert, drop_by_arg, find, avg_age, save, show_csv
 from builtins import print
 
-FILENAME = "users2.csv"
+FILENAME = "data.csv"
 
 MENU = {
     '1': 'Открыть файл',
@@ -23,7 +23,7 @@ while True:
     if action == '1':
         file_open()
     elif action == '2':
-        print(insert(input('ФИО: '), int(input('Возраст: ')), input('Телефон: '), input('Отдел: ')))
+        print(insert(input('vin: '), input('Гос номер: '), input('Марка: '), input('Модель: '), int(input('Год выпуска: ')), int(input('Мощность: ')), int(input('ПРобег: '),)), int(input('Количество владельцев: ')), int((input('Стоимость: ')) ))
     elif action == '3':
         col = input('Колонка: ')
         val = input('Значение: ')

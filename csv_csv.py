@@ -14,11 +14,14 @@ def file_open():
 
 
 # Добавление данных
-def insert(fio, age, tel, otd):
+def insert(vin, gnum, mark, model, age, ls, km, count, price):
     global csv_file
     try:
-        mx = max(csv_file, key=lambda x: int(x['ном']))
-        csv_file.append({'ном': int(mx['ном']) + 1, 'фио': fio, 'возраст': age, 'телефон': tel, 'отдел': otd})
+        # mx = max(csv_file, key=lambda x: int(x['ном']))
+        # csv_file.append({'vin': vin, 'фио': fio, 'возраст': age, 'телефон': tel, 'отдел': otd})
+        csv_file.append(
+            {'vin': vin, 'gnum': gnum, 'mark': mark, 'model': model, 'age': age, 'ls': ls, 'km': km, 'count': count,
+             'price': price})
     except Exception as e:
         return f'Ошибка при добавленнии новой записи {e}'
     return "Данные добавлены."
