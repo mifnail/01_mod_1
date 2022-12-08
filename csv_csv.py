@@ -26,7 +26,7 @@ def insert(vin, gnum, mark, model, age, ls, km, count, price):
 
 
 # Удалить по аргументу
-def drop_by_arg(val, col_name='фио'):
+def drop_by_arg(val, col_name='vin'):
     global csv_file
     try:
         csv_file = list(filter(lambda x: x[col_name] != val, csv_file))
@@ -36,20 +36,26 @@ def drop_by_arg(val, col_name='фио'):
 
 
 # Поиск
-def find(val, col_name='фио'):
+def find(val1, val2, col_name1='mark', col_name2='model'):
+    global csv_file
+    print(*list(filter(lambda x: x[col_name1]==val1 and x[col_name2]==val2, csv_file)))
+
+
+def find_gnum(val, col_name='gnum'):
+    global csv_file
     print(*list(filter(lambda x: x[col_name] == val, csv_file)))
 
 
-# Средний возраст
+# Средний пробег
 def avg_age():
-    print("Средний возраст:",
-          sum([int(row['возраст']) for row in csv_file]) // len(csv_file))
+    print("Средний пробег:",
+          sum([int(row['km']) for row in csv_file]) // len(csv_file))
 
 
 # Сохранение
 def save():
     with open('data.csv', "w", encoding="utf-8", newline="") as file:
-        columns = ['ном', 'фио', 'возраст', 'телефон', 'отдел']
+        columns = ['vin','gnum','mark','model','age','ls','km','vlad','price']
         writer = csv.DictWriter(file, delimiter=";", fieldnames=columns)
         writer.writeheader()
         writer.writerows(csv_file)
@@ -61,12 +67,16 @@ def show_csv():
     if len(csv_file) == 0:
         print(type(csv_file))
     else:
-        print('{:<5}{:<25}{:<8}{:<12}{:<15}'.format(
-            'ном', 'фио', 'возраст', 'телефон', 'отдел'
+        print('{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}'.format(
+            'vin','gnum','mark','model','age','ls','km','vlad','price'
         ))
         for el in csv_file:
-            print('{:<5}{:<25}{:<8}{:<12}{:<15}'.format(el["ном"],
-                                                        el["фио"],
-                                                        el["возраст"],
-                                                        el["телефон"],
-                                                        el['отдел']))
+            print('{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}'.format(el["vin"],
+                                                        el["gnum"],
+                                                        el["mark"],
+                                                        el["model"],
+                                                        el['age'],
+                                                        el["ls"],
+                                                        el["km"],
+                                                        el["vlad"],
+                                                        el["price"]))
