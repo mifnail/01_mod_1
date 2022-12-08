@@ -38,7 +38,7 @@ def drop_by_arg(val, col_name='vin'):
 # Поиск
 def find(val1, val2, col_name1='mark', col_name2='model'):
     global csv_file
-    print(*list(filter(lambda x: x[col_name1]==val1 and x[col_name2]==val2, csv_file)))
+    print(*list(filter(lambda x: x[col_name1] == val1 and x[col_name2] == val2, csv_file)))
 
 
 def find_gnum(val, col_name='gnum'):
@@ -55,7 +55,7 @@ def avg_age():
 # Сохранение
 def save():
     with open('data.csv', "w", encoding="utf-8", newline="") as file:
-        columns = ['vin','gnum','mark','model','age','ls','km','vlad','price']
+        columns = ['vin', 'gnum', 'mark', 'model', 'age', 'ls', 'km', 'count', 'price']
         writer = csv.DictWriter(file, delimiter=";", fieldnames=columns)
         writer.writeheader()
         writer.writerows(csv_file)
@@ -68,15 +68,15 @@ def show_csv():
         print(type(csv_file))
     else:
         print('{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}'.format(
-            'vin','gnum','mark','model','age','ls','km','vlad','price'
+            'vin', 'gnum', 'mark', 'model', 'age', 'ls', 'km', 'count', 'price'
         ))
         for el in csv_file:
             print('{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}{:<25}'.format(el["vin"],
-                                                        el["gnum"],
-                                                        el["mark"],
-                                                        el["model"],
-                                                        el['age'],
-                                                        el["ls"],
-                                                        el["km"],
-                                                        el["vlad"],
-                                                        el["price"]))
+                                                                                  el["gnum"],
+                                                                                  el["mark"],
+                                                                                  el["model"],
+                                                                                  el['age'],
+                                                                                  el["ls"],
+                                                                                  el["km"],
+                                                                                  el["count"],
+                                                                                  el["price"]))
